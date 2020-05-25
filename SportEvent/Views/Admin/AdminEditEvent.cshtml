@@ -1,0 +1,40 @@
+﻿@model SportEvent.Models.Event
+
+@{
+    ViewData["Title"] = "Edit Event";
+    Layout = "_Layout1";
+}
+
+<h1>Edit Event</h1>
+
+<div class="row">
+    <div class="m6 l4">
+        <form asp-action="AdminEditEvent" method="POST">
+            <input type="hidden" asp-for="eventID"/>
+            <div asp-validation-summary="ModelOnly" class="red  lighten-3"></div>            
+            <div class="form-group">
+                <label>Title:</label>
+                <input asp-for="title" class="form-control" />
+                <span asp-validation-for="title" class="red  lighten-3"></span>
+            </div>
+            <div class="form-group">
+                <label>Event Description:</label>
+                <textarea  asp-for="description" class="materialize-textarea"></textarea>
+                <span asp-validation-for="description" class="red  lighten-3"></span>
+            </div>
+            <div class="form-group">
+                <label>Date of the Event:</label>
+                <input asp-for="dateOfEvent" class="form-control" />
+                <span asp-validation-for="dateOfEvent" class="red  lighten-3"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

@@ -1,0 +1,75 @@
+﻿@model IEnumerable<SportEvent.Models.User>
+
+@{
+    ViewData["Title"] = "Users";
+    Layout = "_Layout1";
+}
+
+<h1>List of registered users</h1>
+
+<p>
+    <a asp-action="AdminAddUser" class="btn  red darken-4">Add User</a>
+</p>
+
+<table class="table">
+    <thead>
+        <tr>
+            
+            <th>
+                Name:
+            </th>
+            
+            <th>
+                Date of Birth:
+            </th>
+            <th>
+                Gender
+            </th>
+            <th>
+                Email:
+            </th>
+            <th>
+                Contact Number:
+            </th>
+            <th>
+                Address:
+            </th>
+            <th>
+                PostCode:
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody class="tableEffect">
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.userName) @Html.DisplayFor(modelItem => item.userSurname)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.userDateOfBirth)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.gender)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.userEmail)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.userContactNumber)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.userAddress)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.userPostCode)
+            </td>
+            <td>
+                <a asp-action="AdminEditUser" asp-route-id="@item.userID"><i class="material-icons orange-text">edit</i></a>
+                <a asp-action="AdminDeleteUSer" asp-route-id="@item.userID"><i class="material-icons red-text">delete_forever</i></a>
+
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

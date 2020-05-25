@@ -1,0 +1,32 @@
+﻿@model IEnumerable<SportEvent.Models.Event>
+
+@{
+    ViewData["Title"] = "Home";
+
+}
+    <h1>Welcome!</h1>
+    
+    <div class="row">
+
+        @foreach (var item in Model)
+        {
+
+
+
+            <div class="col s12 m6 l3">
+                <div class="card medium">
+                    <div class="card-image">
+                        <img src="https://i.picsum.photos/id/@(item.eventID*10)/300/300.jpg">
+                        <span class="card-title">@Html.DisplayFor(modelItem => item.title)</span>
+                        <a asp-action="ViewEvent" asp-route-id="@item.eventID" class="waves-effect waves-light btn-small light-blue lighten-3 black-text halfway-fab " target="_blank">See more</a>
+                    </div>
+                    <div class="card-content">
+                        <p>@Html.DisplayFor(modelItem => item.description)</p>
+                        <p>@Html.DisplayFor(modelItem => item.dateOfEvent)</p>
+                    </div>
+                </div>
+            </div>
+        }
+
+
+    </div>

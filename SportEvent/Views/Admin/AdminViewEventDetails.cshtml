@@ -1,0 +1,20 @@
+﻿@model SportEvent.Models.Event
+
+@{
+    ViewData["Title"] = "Events";
+    Layout = "_Layout1";
+}
+
+    <h1>@Html.DisplayFor(model => model.title)</h1>
+
+<div>
+    <h4>@Html.DisplayFor(model => model.title)</h4>
+
+    <span>Description :  </span>
+    <p>@Html.DisplayFor(model => model.description) </p>
+    <span>Date :  </span>
+    <p>@Html.DisplayFor(model => model.dateOfEvent) </p>
+
+
+</div>
+

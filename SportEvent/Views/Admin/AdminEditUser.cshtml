@@ -1,0 +1,74 @@
+﻿@model SportEvent.Models.User
+
+@{
+    ViewData["Title"] = "Edit User";
+    Layout = "_Layout1";
+}
+
+<h1>AdminEditUser</h1>
+
+<h4>User</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="AdminEditUser">
+            <input type="hidden" asp-for="userID" />
+            <div asp-validation-summary="ModelOnly" class="red  lighten-3"></div>
+
+            <div class="form-group">
+                <label>Name:</label>
+                <input asp-for="userName" class="form-control" />
+                <span asp-validation-for="userName" class="red  lighten-3"></span>
+            </div>
+            <div class="form-group">
+                <label>Surname:</label>
+                <input asp-for="userSurname" class="form-control" />
+                <span asp-validation-for="userSurname" class="red  lighten-3"></span>
+            </div>
+            <div class="form-group">
+                <label>Date of birth:</label>
+                <input asp-for="userDateOfBirth" class="form-control" />
+                <span asp-validation-for="userDateOfBirth" class="red  lighten-3"></span>
+            </div>
+            <div class="form-group">
+                <label>Gender:</label>
+                <select asp-for="gender">
+                    <option disabled selected>Select Gender</option>
+                    <option value="Male">Male</option>
+                    <option value="Female">Female</option>
+                    <option value="Other">Other</option>
+                </select>
+                <span asp-validation-for="gender" class="red  lighten-3"></span>
+            </div>
+            <div class="form-group">
+                <label>Email:</label>
+                <input asp-for="userEmail" class="form-control" />
+                <span asp-validation-for="userEmail" class="red  lighten-3"></span>
+            </div>
+            <div class="form-group">
+                <label>Phone Number:</label>
+                <input asp-for="userContactNumber" class="form-control" />
+                <span asp-validation-for="userContactNumber" class="red  lighten-3"></span>
+            </div>
+            <div class="form-group">
+                <label>Home Address:</label>
+                <input asp-for="userAddress" class="form-control" />
+                <span asp-validation-for="userAddress" class="red  lighten-3"></span>
+            </div>
+            <div class="form-group">
+                <label>Post Code:</label>
+                <input asp-for="userPostCode" class="form-control" />
+                <span asp-validation-for="userPostCode" class="red  lighten-3"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

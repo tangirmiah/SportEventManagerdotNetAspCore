@@ -1,0 +1,57 @@
+﻿@model IEnumerable<SportEvent.Models.Event>
+
+@{
+    ViewData["Title"] = "Admin Pannel";
+    Layout = "_Layout1";
+}
+
+<h1>Events List</h1>
+
+<p>
+    <a asp-action="AddEvent" class="btn  red darken-4">Add Event</a>
+</p>
+
+
+
+<table class="table ">
+    <thead>
+        <tr>
+
+            <th>
+                Title:
+            </th>
+            <th>
+                Description:
+            </th>
+            <th>
+                Date:
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody class="tableEffect">
+        @foreach (var item in Model)
+        {
+            <tr>
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.title)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.description)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.dateOfEvent)
+                </td>
+                <td>
+                    <a asp-action="AdminEditEvent" asp-route-id="@item.eventID"><i class="material-icons orange-text">edit</i></a> 
+                    <a asp-action="AdminViewEventDetails" asp-route-id="@item.eventID" target="_blank"><i class="material-icons blue-text">info_outline</i></a> 
+                    <a asp-action="AdminDeleteEvent" asp-route-id="@item.eventID" ><i class="material-icons red-text">delete_forever</i></a> 
+                    
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+
